@@ -50,7 +50,7 @@ My system includes a **cloud aggregator** and **edge devices** working collabora
   - **Gradient Computation and Upload:** Computes gradients based on local training and uploads compressed gradients to the cloud aggregator.
   - **Anomaly De
 
-#### 2 Gradient Compression
+#### 2. Gradient Compression
 
 To address communication constraints, gradient compression techniques are applied. This involves:
 

@@ -23,14 +23,47 @@ In my study, I applied existing deep learning techniques such as Autoencoders, R
 
 ## 3. Methodology
 
-### 3.1 ### <a href="https://archive.ics.uci.edu/dataset/791/metropt+3+dataset" target="_blank">Data</a>
+### 3.1 <a href="https://archive.ics.uci.edu/dataset/791/metropt+3+dataset" target="_blank">Data</a>
 We utilize a time series dataset from an Industrial IoT environment. The dataset includes various sensor readings, such as TP2 (compressor pressure), DV_pressure, Oil_temperature, Motor_current, DV_eletric, Towers, LPS, Oil_level, Caudal_impulses, and proviedes with timestamps of anomalous behaviour. Preprocessing steps include data normalization, handling missing values, and converting timestamps to a standard format.
 
 ### 3.2 Model Architecture
-- **Autoencoders**: A deep autoencoder architecture is employed with multiple encoder and decoder layers to compress and reconstruct the input data. Anomalies are detected based on reconstruction error.
-- **LSTM Networks**: LSTMs are used to capture temporal dependencies. The model is trained to predict the next time step, and anomalies are detected when the prediction error exceeds a threshold.
-- **CNN-LSTM Models**: Combining Convolutional Neural Networks (CNNs) and LSTMs, this architecture captures both spatial and temporal features. CNN layers extract spatial features, while LSTM layers model temporal dependencies.
-- **Attention Mechanisms**: Integrated into LSTM networks to improve detection accuracy by focusing on relevant parts of the time series data.
+
+In our federated learning system, we employ a consistent architectural framework across different models, including SV, GRU, SAE, CNN, LSTM, and their combinations, to address the challenges of anomaly detection in industrial IoT settings. The architecture is designed to optimize communication and computation, particularly in scenarios involving edge devices with limited resources. Here’s a detailed overview of the architecture:
+
+#### 1. Federated Learning Framework
+
+#### 1. Federated Learning Framework
+
+Our system includes a **cloud aggregator** and **edge devices** working collaboratively:
+
+- **Cloud Aggregator:** This is a robust server with substantial computing power and resources. It serves two primary functions:
+  - **Global Model Initialization:** The cloud aggregator initializes the global model and distributes it to all edge devices.
+  - **Gradient Aggregation:** It collects and aggregates the gradients uploaded by edge devices to refine the global model until convergence is achieved.
+
+- **Edge Devices:** These include various IIoT sensors like whirlpools, wind turbines, and vehicles. Each edge device:
+  - **Local Model Training:** Trains a local model on its specific dataset, which consists of sensing time-series data.
+  - **Gradient Computation and Upload:** Computes gradients based on local training and uploads compressed gradients to the cloud aggregator.
+  - **Anomaly De
+
+#### 2 Gradient Compression
+
+To address communication constraints, gradient compression techniques are applied. This involves:
+
+- **Local Training and Gradient Computation:** Each client trains its local model on its specific data and computes gradients locally.
+
+- **Gradient Compression:** The gradients are compressed to reduce their size and the amount of data transmitted. This process ensures efficient communication between the clients and the main server, minimizing the data transfer overhead.
+
+- **Gradient Aggregation:** The compressed gradients from each client are sent to the main server, where they are aggregated to update the global model. The aggregation process involves combining these compressed updates to refine the global model.
+
+#### 3. Federated Update Process
+
+- **Edge Device Operations:** Clients train their local models and compute the gradients. These gradients are then compressed and sent to the main server.
+
+- **Server-Side Operations:** The main server receives the compressed gradients, decompresses them if necessary, and aggregates the updates to improve the global model. The updated global model is then redistributed to the clients for further local training.
+
+This architecture ensures that the federated learning system remains scalable and efficient, accommodating the limited computational resources of edge devices while optimizing data communication and model performance.
+
+#### 4. Models
 
 ### 3.3 Training and Evaluation
 The models are trained using a combination of supervised and unsupervised learning techniques. Cross-entropy loss is used for classification tasks, and mean squared error for reconstruction tasks. Evaluation metrics include Precision, Recall, F1-Score, and ROC-AUC. Special attention is given to handling class imbalance and noisy data. Data augmentation techniques and advanced preprocessing methods, such as resampling and handling warnings related to chained assignment, are applied to improve model robustness.
@@ -38,33 +71,22 @@ The models are trained using a combination of supervised and unsupervised learni
 ## 4. Experiments and Results
 
 ### 4.1 Experimental Setup
-Experiments involve hyperparameter tuning using grid search and stratified k-fold cross-validation to ensure robust performance. Data augmentation and preprocessing techniques, including handling deprecated warnings and chained assignment issues, are employed to address class imbalance and data quality.
+Experiments involve hyperparameter tuning using grid search and stratified k-fold cross-validation to ensure robust performance. Data augmentation and preprocessing techniques are also employed to address class imbalance and data quality.
 
 ### 4.2 Results
-- **Model Performance**: Deep learning models, particularly CNN-LSTM and attention-based models, outperform traditional methods. These models exhibit high accuracy and robustness in detecting anomalies in the presence of noise and class imbalance.
+- **Model Performance**: 
 - **Visualization**: Anomaly detection results are visualized in time series plots, demonstrating the effectiveness of the models.
 - **Comparison with Baselines**: Significant improvements are observed over baseline models like Isolation Forests and One-Class SVMs, especially in handling complex patterns.
 
-### 4.3 Case Studies
-Real-world case studies from the IIoT dataset highlight the models' effectiveness in detecting anomalies such as sensor failures and unusual operational patterns. The results illustrate how preprocessing and advanced model architectures contribute to improved detection accuracy.
+## 5. Challenges
 
-## 5. Discussion
-
-### 5.1 Insights
-Deep learning models, including those with attention mechanisms, provide better generalization and robustness to noise compared to traditional methods. Addressing data preprocessing issues, such as handling FutureWarnings and chained assignments, is crucial for maintaining model performance.
-
-### 5.2 Challenges
-Key challenges include managing noisy data, requiring large labeled datasets, and computational demands. Federated learning adds complexity with the need for efficient communication while preserving model accuracy.
-
-### 5.3 Future Work
-Future research could explore alternative deep learning architectures like Transformer models and extend applications to other domains beyond IIoT. Enhancing scalability and addressing preprocessing challenges will be important for large-scale deployments.
+One of the primary challenges encountered in this study is the computational limitation associated with Support Vector Machines (SVMs) due to the large volume of data. Handling extensive datasets often leads to significant computational overhead, which can hinder the model's performance and scalability. Additionally, the simulation of edge computing environments poses its own set of challenges. Traditional Python-based simulations may not fully capture the constraints and resource limitations of real-world edge computing scenarios, where resources are constrained and operational conditions are more variable.
 
 ## 6. Conclusion
-This paper presents novel deep learning approaches for anomaly detection in time series data, with a focus on Industrial IoT applications. The proposed models offer significant improvements over traditional methods, particularly in handling complex patterns and large datasets. The integration of attention mechanisms and federated learning further enhances the practical applicability of these models in real-world scenarios.
+
+This paper has explored novel deep learning approaches for anomaly detection in time series data, with a particular emphasis on Industrial IoT applications. The proposed models demonstrate significant improvements over traditional methods, particularly in their ability to handle complex patterns and large datasets. The integration of attention mechanisms has been shown to enhance model accuracy, allowing for more precise anomaly detection. Furthermore, the use of gradient compression has proven effective in reducing communication overhead and saving time, thus improving the efficiency of federated learning processes. These advancements contribute to making anomaly detection more practical and scalable in real-world Industrial IoT environments.
+
 
 ## References
 -[^1] Communication-Efficient Federated Learning for Anomaly Detection in Industrial Internet of Things. [Link](https://ieeexplore.ieee.org/document/9348249)
 
-
-## Appendix
-- [Include supplementary materials such as additional plots, code snippets, or detailed tables here]

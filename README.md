@@ -183,5 +183,5 @@ This paper has explored novel deep learning approaches for anomaly detection in 
 
 
 ## References
--[^1] Communication-Efficient Federated Learning for Anomaly Detection in Industrial Internet of Things. [Link](https://ieeexplore.ieee.org/document/9348249)
+- Communication-Efficient Federated Learning for Anomaly Detection in Industrial Internet of Things. [Link](https://ieeexplore.ieee.org/document/9348249)
 

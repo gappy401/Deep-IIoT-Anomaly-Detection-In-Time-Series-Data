@@ -1,7 +1,7 @@
 # Deep Industrial IoT Anomaly Detection in Time Series Data 
 
 ## Abstract
-In this paper, we explore advanced methodologies for detecting anomalies in time series data using deep learning techniques. We focus on leveraging various deep learning models to improve anomaly detection accuracy and robustness, addressing challenges such as imbalanced data, noise, and scalability. Our approach is designed to be communication-efficient and suitable for on-device federated learning, making it ideal for Industrial IoT (IIoT) applications.
+In this paper, I explore some advanced methodologies for detecting anomalies in time series data. I mainly focused on leveraging various deep learning models to improve anomaly detection accuracy and robustness, addressing challenges such as imbalanced data, noise, and scalability. I utilised approaches from my study of the paper <sup>[^1]</sup> based on communication-efficient federated learning for anomaly detection in industrial  solutions for Industrial IoT (IIoT) applications.
 
 ## 1. Introduction
 Anomaly detection in time series data is crucial for numerous applications, including fraud detection, fault diagnosis, and system monitoring. Traditional methods often fall short in handling complex patterns and large volumes of data. This paper proposes novel approaches using deep learning to enhance anomaly detection performance, with a focus on applications in Industrial IoT environments.
@@ -60,7 +60,7 @@ Future research could explore alternative deep learning architectures like Trans
 This paper presents novel deep learning approaches for anomaly detection in time series data, with a focus on Industrial IoT applications. The proposed models offer significant improvements over traditional methods, particularly in handling complex patterns and large datasets. The integration of attention mechanisms and federated learning further enhances the practical applicability of these models in real-world scenarios.
 
 ## References
-- [Include references here]
+- [^1]: Communication-Efficient Federated Learning for Anomaly Detection in Industrial Internet of Things. [Link]([[https://ieeexplore.ieee.org/document/9348249]])
 
 ## Appendix
 - [Include supplementary materials such as additional plots, code snippets, or detailed tables here]

@@ -25,8 +25,10 @@ In my study, I applied existing deep learning techniques such as Autoencoders, R
 
 ### 3.1 <a href="https://archive.ics.uci.edu/dataset/791/metropt+3+dataset" target="_blank">Data</a>
 We utilize a time series dataset from an Industrial IoT environment. The dataset includes various sensor readings, such as TP2 (compressor pressure), DV_pressure, Oil_temperature, Motor_current, DV_eletric, Towers, LPS, Oil_level, Caudal_impulses, and proviedes with timestamps of anomalous behaviour. Preprocessing steps include data normalization, handling missing values, and converting timestamps to a standard format.
+<div style="text-align: center;">
+  <img src="4-Figure2-1.png" alt="General Architecture Provided in the Paper" style="width: 70%;"/>
+</div>
 
-![General Architecture Provided in the Paper](4-Figure2-1.png)
 ### 3.2 Model Architecture
 
 In our federated learning system, we employ a consistent architectural framework across different models, including SV, GRU, SAE, CNN, LSTM, and their combinations, to address the challenges of anomaly detection in industrial IoT settings. The architecture is designed to optimize communication and computation, particularly in scenarios involving edge devices with limited resources. Here’s a detailed overview of the architecture:

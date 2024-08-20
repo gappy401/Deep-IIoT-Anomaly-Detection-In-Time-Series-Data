@@ -63,7 +63,91 @@ To address communication constraints, gradient compression techniques are applie
 
 This architecture ensures that the federated learning system remains scalable and efficient, accommodating the limited computational resources of edge devices while optimizing data communication and model performance.
 
-#### 4. Models
+## 4. Models
+
+### 4.1 Support Vector Machine (SVM)
+
+**Model Type:** Support Vector Machine with RBF kernel.
+
+- **Layers:** Not applicable (SVM is a non-neural network model).
+- **Features:**
+  - **Data Preparation:** Shuffle, split, and balance the dataset using class weights.
+  - **Hyperparameter Tuning:** Perform grid search with parameters such as `C`, `gamma`, and `kernel`.
+  - **Optimization:** Uses the RBF kernel to handle non-linear relationships in the data.
+  - **Purpose:** Classifies data and detects anomalies by learning the decision boundary between classes.
+
+### 4.2 Gated Recurrent Unit (GRU)
+
+**Model Type:** GRU-based neural network.
+
+- **Layers:**
+  - **GRU Layer:** 64 units with return sequences to process sequential data.
+  - **Dropout Layer:** Applied after the GRU layer to prevent overfitting.
+  - **GRU Layer:** 32 units for further sequence processing.
+  - **Dense Layer:** 50 units with ReLU activation for learning complex patterns.
+  - **Dropout Layer:** Applied before the final output layer.
+  - **Output Layer:** Dense layer with 1 unit and sigmoid activation for binary classification.
+- **Purpose:** Captures temporal dependencies and patterns in sequential data, useful for anomaly detection in time-series data.
+
+### 4.3 Stacked Autoencoder (SAE)
+
+**Model Type:** Autoencoder neural network.
+
+- **Layers:**
+  - **Encoder:**
+    - **Dense Layer:** 128 units with ReLU activation.
+    - **Dense Layer:** 64 units with ReLU activation.
+    - **Dense Layer:** 32 units with ReLU activation.
+  - **Bottleneck Layer:**
+    - **Dense Layer:** 16 units with ReLU activation, representing compressed encoded data.
+  - **Decoder:**
+    - **Dense Layer:** 32 units with ReLU activation.
+    - **Dense Layer:** 64 units with ReLU activation.
+    - **Dense Layer:** 128 units with ReLU activation.
+  - **Output Layer:**
+    - **Dense Layer:** Number of units equal to input dimensions with sigmoid activation.
+- **Purpose:** Learns efficient data representations and reconstructs the input. Useful for anomaly detection by identifying reconstruction errors.
+
+### 4.4 Convolutional Neural Network - Long Short-Term Memory (CNN-LSTM)
+
+**Model Type:** Hybrid CNN-LSTM model.
+
+- **Layers:**
+  - **CNN Layers:**
+    - **Conv1D Layer:** 64 filters with kernel size 3, ReLU activation for feature extraction.
+    - **MaxPooling1D Layer:** Pool size 2 to downsample and reduce dimensionality.
+    - **Dropout Layer:** Applied to prevent overfitting.
+  - **LSTM Layers:**
+    - **LSTM Layer:** 50 units with return sequences to capture temporal dependencies.
+    - **LSTM Layer:** 50 units for further sequence processing.
+  - **Dense Layers:**
+    - **Dense Layer:** 50 units with ReLU activation.
+    - **Dropout Layer:** Applied before the final output layer.
+    - **Output Layer:** Dense layer with 1 unit and sigmoid activation for classification.
+- **Purpose:** Combines convolutional layers for feature extraction with LSTM layers for sequence modeling, suitable for time-series data.
+
+### 4.5 Attention Mechanism CNN-LSTM
+
+**Model Type:** CNN-LSTM model with attention mechanism.
+
+- **Layers:**
+  - **CNN Layers:**
+    - **Conv1D Layer:** 64 filters with kernel size 3, ReLU activation.
+    - **MaxPooling1D Layer:** Pool size 2 to reduce dimensionality.
+    - **Dropout Layer:** Applied to prevent overfitting.
+  - **LSTM Layers:**
+    - **LSTM Layer:** 50 units with return sequences to capture sequential data.
+  - **Attention Mechanism:**
+    - **Dense Layer:** Computes attention probabilities to focus on important parts of the sequence.
+    - **Multiply Layer:** Applies attention weights to the LSTM outputs.
+  - **LSTM Layer:** 50 units to process attention-weighted sequences.
+  - **Dense Layers:**
+    - **Dense Layer:** 50 units with ReLU activation.
+    - **Dropout Layer:** Applied before the final output layer.
+    - **Output Layer:** Dense layer with 1 unit and sigmoid activation for classification.
+- **Purpose:** Enhances the CNN-LSTM model by incorporating attention mechanisms to focus on significant features and improve model performance.
+
+
 
 ### 3.3 Training and Evaluation
 The models are trained using a combination of supervised and unsupervised learning techniques. Cross-entropy loss is used for classification tasks, and mean squared error for reconstruction tasks. Evaluation metrics include Precision, Recall, F1-Score, and ROC-AUC. Special attention is given to handling class imbalance and noisy data. Data augmentation techniques and advanced preprocessing methods, such as resampling and handling warnings related to chained assignment, are applied to improve model robustness.

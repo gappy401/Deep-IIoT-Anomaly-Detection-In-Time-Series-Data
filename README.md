@@ -164,8 +164,12 @@ Experiments involve hyperparameter tuning using grid search and stratified k-fol
 
 ### 4.2 Results
 - **Model Performance**: 
-- **Visualization**: 
-- **Comparison with Baselines**: 
+
+- **Comparison with Baselines on compression**:
+  <div align="center">
+  <img src="Comparision.png" alt="How Gradient Compression Affected the Models" style="width: 50%; border: 2px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"/>
+</div>
+
 
 ## 5. Challenges
 

@@ -1,10 +1,15 @@
-# Deep Anomaly Detection in Time Series
+# Deep Industrial IoT Anomaly Detection in Time Series Data 
 
 ## Abstract
 In this paper, we explore advanced methodologies for detecting anomalies in time series data using deep learning techniques. We focus on leveraging various deep learning models to improve anomaly detection accuracy and robustness, addressing challenges such as imbalanced data, noise, and scalability. Our approach is designed to be communication-efficient and suitable for on-device federated learning, making it ideal for Industrial IoT (IIoT) applications.
 
 ## 1. Introduction
 Anomaly detection in time series data is crucial for numerous applications, including fraud detection, fault diagnosis, and system monitoring. Traditional methods often fall short in handling complex patterns and large volumes of data. This paper proposes novel approaches using deep learning to enhance anomaly detection performance, with a focus on applications in Industrial IoT environments.
+
+The structure and methodologies employed in this study are inspired by the techniques outlined in [the referenced paper]. While the original paper demonstrates these methods using a specific Industrial IoT dataset, our work adapts these methodologies to a different time series dataset. This adaptation allows us to explore the generalizability and robustness of the proposed models in a new context, validating their effectiveness across diverse data scenarios.
+
+We employ similar model architectures and evaluation strategies as detailed in the paper, including Autoencoders, LSTM Networks, CNN-LSTM models, and Attention Mechanisms. By applying these approaches to a new dataset, we aim to assess their performance and adaptability beyond the original study's scope.
+
 
 ## 2. Related Work
 ### 2.1 Traditional Anomaly Detection Methods

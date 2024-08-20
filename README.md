@@ -23,8 +23,8 @@ In my study, I applied existing deep learning techniques such as Autoencoders, R
 
 ## 3. Methodology
 
-### 3.1 Data Description
-We utilize a time series dataset from an Industrial IoT environment. The dataset includes various sensor readings, such as TP2 (compressor pressure), DV_pressure, Oil_temperature, Motor_current, DV_eletric, Towers, LPS, Oil_level, Caudal_impulses, and a label for anomalies (`anomalous_hour`). Anomalies are detected based on predefined thresholds or expert annotations. Preprocessing steps include data normalization, handling missing values, and converting timestamps to a standard format.
+### 3.1 ### <a href="https://archive.ics.uci.edu/dataset/791/metropt+3+dataset" target="_blank">Data</a>
+We utilize a time series dataset from an Industrial IoT environment. The dataset includes various sensor readings, such as TP2 (compressor pressure), DV_pressure, Oil_temperature, Motor_current, DV_eletric, Towers, LPS, Oil_level, Caudal_impulses, and proviedes with timestamps of anomalous behaviour. Preprocessing steps include data normalization, handling missing values, and converting timestamps to a standard format.
 
 ### 3.2 Model Architecture
 - **Autoencoders**: A deep autoencoder architecture is employed with multiple encoder and decoder layers to compress and reconstruct the input data. Anomalies are detected based on reconstruction error.

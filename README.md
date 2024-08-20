@@ -164,7 +164,7 @@ Experiments involve hyperparameter tuning using grid search and stratified k-fol
 
 ## 5. Challenges
 
-One of the primary challenges encountered in this study is the computational limitation associated with Support Vector Machines (SVMs) due to the large volume of data. Handling extensive datasets often leads to significant computational overhead, which can hinder the model's performance and scalability. Additionally, the simulation of edge computing environments poses its own set of challenges. Traditional Python-based simulations may not fully capture the constraints and resource limitations of real-world edge computing scenarios, where resources are constrained and operational conditions are more variable.
+One of the primary challenges encountered in this study is the computational limitation associated with Support Vector Machines (SVMs) and GRU models due to the large volume of data. Handling extensive datasets often leads to significant computational overhead, which can hinder the model's performance and scalability. Additionally, the simulation of edge computing environments poses its own set of challenges. Additionally, traditional Python-based simulations may not fully capture the constraints and resource limitations of real-world edge computing scenarios, where resources are constrained and operational conditions are more variable.
 
 ## 6. Conclusion
 

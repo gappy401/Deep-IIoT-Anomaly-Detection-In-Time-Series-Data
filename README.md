@@ -14,39 +14,42 @@ Classical methods such as Statistical Methods, Isolation Forests, and One-Class 
 Existing deep learning techniques for anomaly detection include Autoencoders, Recurrent Neural Networks (RNNs), and Long Short-Term Memory (LSTM) networks. These models can automatically learn features from raw data and capture complex temporal dependencies, making them more suitable for time series anomaly detection.
 
 ## 3. Methodology
+
 ### 3.1 Data Description
-We utilize a time series dataset from an Industrial IoT environment. The data includes various sensor readings, and anomalies are labeled based on predefined thresholds or expert annotations. Preprocessing steps include data normalization, handling missing values, and converting timestamps to a standard format.
+We utilize a time series dataset from an Industrial IoT environment. The dataset includes various sensor readings, such as TP2 (compressor pressure), DV_pressure, Oil_temperature, Motor_current, DV_eletric, Towers, LPS, Oil_level, Caudal_impulses, and a label for anomalies (`anomalous_hour`). Anomalies are detected based on predefined thresholds or expert annotations. Preprocessing steps include data normalization, handling missing values, and converting timestamps to a standard format.
 
 ### 3.2 Model Architecture
-- **Autoencoders**: We employ a deep autoencoder architecture with multiple encoder and decoder layers to compress the input data and reconstruct it. Anomalies are detected based on reconstruction error.
-- **LSTM Networks**: LSTMs are used to capture temporal dependencies in the data. The model is trained to predict the next time step, and anomalies are detected when the prediction error exceeds a certain threshold.
-- **CNN-LSTM Models**: A combination of Convolutional Neural Networks (CNNs) and LSTMs is used to capture both spatial and temporal features in the data. The CNN layers extract spatial features, while the LSTM layers model the temporal dependencies.
-- **Attention Mechanisms**: Attention mechanisms are integrated into the LSTM networks to allow the model to focus on relevant parts of the time series data, improving detection accuracy.
+- **Autoencoders**: A deep autoencoder architecture is employed with multiple encoder and decoder layers to compress and reconstruct the input data. Anomalies are detected based on reconstruction error.
+- **LSTM Networks**: LSTMs are used to capture temporal dependencies. The model is trained to predict the next time step, and anomalies are detected when the prediction error exceeds a threshold.
+- **CNN-LSTM Models**: Combining Convolutional Neural Networks (CNNs) and LSTMs, this architecture captures both spatial and temporal features. CNN layers extract spatial features, while LSTM layers model temporal dependencies.
+- **Attention Mechanisms**: Integrated into LSTM networks to improve detection accuracy by focusing on relevant parts of the time series data.
 
 ### 3.3 Training and Evaluation
-The models are trained using a combination of supervised and unsupervised learning techniques. We use cross-entropy loss for classification tasks and mean squared error for reconstruction tasks. Evaluation metrics include Precision, Recall, F1-Score, and ROC-AUC.
+The models are trained using a combination of supervised and unsupervised learning techniques. Cross-entropy loss is used for classification tasks, and mean squared error for reconstruction tasks. Evaluation metrics include Precision, Recall, F1-Score, and ROC-AUC. Special attention is given to handling class imbalance and noisy data. Data augmentation techniques and advanced preprocessing methods, such as resampling and handling warnings related to chained assignment, are applied to improve model robustness.
 
 ## 4. Experiments and Results
+
 ### 4.1 Experimental Setup
-We conduct experiments using a grid search for hyperparameter tuning and stratified k-fold cross-validation to ensure robust performance across different data splits. Data augmentation techniques are employed to address class imbalance.
+Experiments involve hyperparameter tuning using grid search and stratified k-fold cross-validation to ensure robust performance. Data augmentation and preprocessing techniques, including handling deprecated warnings and chained assignment issues, are employed to address class imbalance and data quality.
 
 ### 4.2 Results
-- **Model Performance**: The deep learning models significantly outperform traditional methods, with the CNN-LSTM and attention-based models achieving the highest accuracy.
-- **Visualization**: Time series plots with detected anomalies are provided, highlighting the effectiveness of the proposed models.
-- **Comparison with Baselines**: Our deep learning approaches show substantial improvements over baseline models such as Isolation Forests and One-Class SVMs.
+- **Model Performance**: Deep learning models, particularly CNN-LSTM and attention-based models, outperform traditional methods. These models exhibit high accuracy and robustness in detecting anomalies in the presence of noise and class imbalance.
+- **Visualization**: Anomaly detection results are visualized in time series plots, demonstrating the effectiveness of the models.
+- **Comparison with Baselines**: Significant improvements are observed over baseline models like Isolation Forests and One-Class SVMs, especially in handling complex patterns.
 
 ### 4.3 Case Studies
-We present case studies from the IIoT dataset, demonstrating how the models detect anomalies in real-world scenarios, such as sensor failures and unusual operational patterns.
+Real-world case studies from the IIoT dataset highlight the models' effectiveness in detecting anomalies such as sensor failures and unusual operational patterns. The results illustrate how preprocessing and advanced model architectures contribute to improved detection accuracy.
 
 ## 5. Discussion
+
 ### 5.1 Insights
-The deep learning models provide better generalization and robustness to noise compared to traditional methods. The integration of attention mechanisms further enhances model performance by allowing the model to focus on the most relevant features of the time series data.
+Deep learning models, including those with attention mechanisms, provide better generalization and robustness to noise compared to traditional methods. Addressing data preprocessing issues, such as handling FutureWarnings and chained assignments, is crucial for maintaining model performance.
 
 ### 5.2 Challenges
-Challenges include handling noisy data, the need for large labeled datasets, and the computational resources required for training deep models. Federated learning presents an additional challenge of ensuring communication efficiency while maintaining model accuracy.
+Key challenges include managing noisy data, requiring large labeled datasets, and computational demands. Federated learning adds complexity with the need for efficient communication while preserving model accuracy.
 
 ### 5.3 Future Work
-Future research could explore other deep learning architectures, such as Transformer models, and apply the proposed methods to other domains beyond IIoT. Additionally, improving the scalability of the models for large-scale deployments is a key area for further investigation.
+Future research could explore alternative deep learning architectures like Transformer models and extend applications to other domains beyond IIoT. Enhancing scalability and addressing preprocessing challenges will be important for large-scale deployments.
 
 ## 6. Conclusion
 This paper presents novel deep learning approaches for anomaly detection in time series data, with a focus on Industrial IoT applications. The proposed models offer significant improvements over traditional methods, particularly in handling complex patterns and large datasets. The integration of attention mechanisms and federated learning further enhances the practical applicability of these models in real-world scenarios.

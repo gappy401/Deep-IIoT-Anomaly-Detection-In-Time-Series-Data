@@ -60,7 +60,7 @@ Future research could explore alternative deep learning architectures like Trans
 This paper presents novel deep learning approaches for anomaly detection in time series data, with a focus on Industrial IoT applications. The proposed models offer significant improvements over traditional methods, particularly in handling complex patterns and large datasets. The integration of attention mechanisms and federated learning further enhances the practical applicability of these models in real-world scenarios.
 
 ## References
--[^1]: Communication-Efficient Federated Learning for Anomaly Detection in Industrial Internet of Things. [Link](https://ieeexplore.ieee.org/document/9348249)
+-[^1] Communication-Efficient Federated Learning for Anomaly Detection in Industrial Internet of Things. [Link](https://ieeexplore.ieee.org/document/9348249)
 
 
 ## Appendix

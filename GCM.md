@@ -2,71 +2,54 @@
 
 ## Overview
 
-The gradient compression method described involves a combination of **gradient sparsification** and **local gradient accumulation** to improve communication efficiency in distributed machine learning systems.
+The gradient compression method aims to improve communication efficiency in distributed machine learning systems by focusing on **gradient sparsification** and **local gradient accumulation**.
 
-## Gradient Sparsification
+## Key Concepts
 
-- **Concept:** 
-  - Selects only a subset of gradients with the largest absolute values.
-  - In a gradient matrix where 99.9% of the gradients are zero, only the remaining 0.1% with significant values are used for model updates.
-  
-- **Implementation:**
-  - Gradients below a certain threshold are considered less important and are filtered out, resulting in a sparse gradient representation.
-  - This reduces the communication load between edge devices and the cloud aggregator.
+### Gradient Sparsification
 
-## Local Gradient Accumulation
+- **What It Does:**
+  - Instead of transmitting all gradients, only the most significant ones (with the largest absolute values) are sent.
+  - For example, if 99.9% of gradients are zero, only the remaining 0.1% are used for updating the model.
 
-- **Concept:**
-  - Accumulates smaller gradients locally until they exceed a predefined threshold to address potential information loss from aggressive sparsification.
-  
-- **Implementation:**
-  - Edge devices store and aggregate smaller gradients until they reach the threshold for transmission, ensuring that even small gradients contribute to model updates.
+- **Why It's Useful:**
+  - Reduces the amount of data exchanged between edge devices and the cloud, making the communication process more efficient.
 
-## Steps in the Proposed Method
+### Local Gradient Accumulation
+
+- **What It Does:**
+  - Keeps track of smaller gradients locally until they exceed a certain threshold.
+  - Prevents loss of important information by ensuring even small gradients are considered in model updates.
+
+- **Why It's Useful:**
+  - Balances the data compression by ensuring that smaller gradients are accumulated and used effectively in training.
+
+## How It Works
 
 1. **Local Training:**
-   - Edge devices perform local training and use a gradient accumulation scheme to handle smaller gradients.
+   - Edge devices train their models and use a gradient accumulation scheme to handle smaller gradients.
 
 2. **Gradient Compression:**
-   - **Sparsification:** Compress gradients by sending only those with absolute values above a threshold to the cloud aggregator.
-   - **Local Accumulation:** Accumulate smaller gradients locally until they exceed the threshold for transmission.
+   - **Sparsification:** Transmits only significant gradients to the cloud, reducing data volume.
+   - **Accumulation:** Stores smaller gradients locally until they are large enough to be sent.
 
 3. **Gradient Aggregation:**
-   - **Cloud Aggregator:** Receives and aggregates sparse gradients from edge devices to update the global model, which is then sent back to the edge devices for further training.
+   - The cloud combines the sparse gradients from edge devices to update the global model and sends this updated model back for further training.
 
 ## Additional Techniques
 
 - **Momentum Correction:**
-  - Adjusts accumulated small gradients to converge more effectively towards gradients with larger absolute values.
-  - Accelerates convergence and improves model accuracy.
+  - Helps adjust accumulated gradients so they align better with the larger gradients, speeding up model convergence.
 
 - **Local Gradient Clipping:**
-  - Prevents gradient explosions by ensuring extreme gradient values do not negatively impact training stability.
-
-## Algorithm Summary
-
-1. **Initialization:**
-   - Initialize parameters and set up the gradient buffer.
-
-2. **Local Training Loop:**
-   - Compute gradients and apply gradient clipping during each training iteration.
-
-3. **Gradient Selection:**
-   - Filter gradients based on a threshold and send significant gradients to the cloud.
-
-4. **Local Accumulation:**
-   - Accumulate smaller gradients locally until they reach the threshold for transmission.
-
-5. **Aggregation and Update:**
-   - Aggregate sparse gradients in the cloud and update the global model.
+  - Prevents extreme gradient values from causing instability during training.
 
 ## Impact on Accuracy
 
-- **Advantages:**
-  - Reduces communication costs and speeds up training by minimizing the amount of data exchanged.
+- **Benefits:**
+  - Efficient communication and faster training due to reduced data exchange.
 
 - **Challenges:**
-  - Excessive sparsification might introduce noise and affect model convergence.
-  - Techniques like momentum correction and gradient clipping help mitigate these effects and maintain model performance.
+  - Too much sparsification could introduce noise and impact model performance. Momentum correction and gradient clipping are used to address these issues and maintain accuracy.
 
-This method balances communication efficiency with the need to preserve important gradient information, aiming to enhance overall system performance while maintaining model accuracy.
+This method optimizes communication while preserving essential gradient information, aiming to enhance both efficiency and model performance.

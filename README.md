@@ -33,12 +33,12 @@ We utilize a time series dataset from an Industrial IoT environment. The dataset
 
 ### 3.2 Model Architecture
 
-In our federated learning system, we employ a consistent architectural framework across different models, including SV, GRU, SAE, CNN, LSTM, and their combinations, to address the challenges of anomaly detection in industrial IoT settings. The architecture is designed to optimize communication and computation, particularly in scenarios involving edge devices with limited resources. Here’s a detailed overview of the architecture:
+In my federated learning system, we employ a consistent architectural framework across different models, including SV, GRU, SAE, CNN, LSTM, and their combinations, to address the challenges of anomaly detection in industrial IoT settings. The architecture is designed to optimize communication and computation, particularly in scenarios involving edge devices with limited resources. Here’s a detailed overview of the architecture:
 
 #### 1. Federated Learning Framework
 
 
-Our system includes a **cloud aggregator** and **edge devices** working collaboratively:
+My system includes a **cloud aggregator** and **edge devices** working collaboratively:
 
 - **Cloud Aggregator:** This is a robust server with substantial computing power and resources. It serves two primary functions:
   - **Global Model Initialization:** The cloud aggregator initializes the global model and distributes it to all edge devices.
@@ -154,7 +154,7 @@ This architecture ensures that the federated learning system remains scalable an
 
 
 ### 3.3 Training and Evaluation
-The models are trained using a combination of supervised and unsupervised learning techniques. Cross-entropy loss is used for classification tasks, and mean squared error for reconstruction tasks. Evaluation metrics include Precision, Recall, F1-Score, and ROC-AUC. Special attention is given to handling class imbalance and noisy data. Data augmentation techniques and advanced preprocessing methods, such as resampling and handling warnings related to chained assignment, are applied to improve model robustness.
+
 
 ## 4. Experiments and Results
 
@@ -163,8 +163,8 @@ Experiments involve hyperparameter tuning using grid search and stratified k-fol
 
 ### 4.2 Results
 - **Model Performance**: 
-- **Visualization**: Anomaly detection results are visualized in time series plots, demonstrating the effectiveness of the models.
-- **Comparison with Baselines**: Significant improvements are observed over baseline models like Isolation Forests and One-Class SVMs, especially in handling complex patterns.
+- **Visualization**: 
+- **Comparison with Baselines**: 
 
 ## 5. Challenges
 

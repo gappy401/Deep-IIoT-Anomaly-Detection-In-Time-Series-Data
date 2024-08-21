@@ -44,12 +44,74 @@ The gradient compression method aims to improve communication efficiency in dist
 - **Local Gradient Clipping:**
   - Prevents extreme gradient values from causing instability during training.
 
-## Impact on Accuracy
+## Gradient Compression Implementation
 
-- **Benefits:**
-  - Efficient communication and faster training due to reduced data exchange.
+```python
+import numpy as np
 
-- **Challenges:**
-  - Too much sparsification could introduce noise and impact model performance. Momentum correction and gradient clipping are used to address these issues and maintain accuracy.
+class GradientCompressor:
+    def __init__(self, sparsity_threshold=0.001, accumulation_threshold=0.0001):
+        """
+        Initializes the GradientCompressor with specific thresholds for sparsity and accumulation.
+
+        Parameters:
+        sparsity_threshold (float): The percentage of gradients to be considered significant (0.001 means 0.1%).
+        accumulation_threshold (float): The threshold value below which gradients will be accumulated locally.
+        """
+        self.sparsity_threshold = sparsity_threshold
+        self.accumulation_threshold = accumulation_threshold
+        self.local_accumulation = None
+
+    def compress(self, gradients):
+        """
+        Compresses the gradients by sparsifying and accumulating them based on the thresholds.
+
+        Parameters:
+        gradients (np.array): The gradient array to be compressed.
+
+        Returns:
+        np.array: The sparsified gradient array with only the most significant gradients.
+        """
+        # Flatten the gradient array for easier processing
+        flat_gradients = gradients.flatten()
+
+        # Calculate the sparsity threshold value
+        threshold_value = np.percentile(np.abs(flat_gradients), 100 * (1 - self.sparsity_threshold))
+
+        # Sparsify the gradients
+        significant_gradients = np.where(np.abs(flat_gradients) >= threshold_value, flat_gradients, 0)
+
+        # Accumulate small gradients
+        if self.local_accumulation is None:
+            self.local_accumulation = np.zeros_like(significant_gradients)
+
+        small_gradients = np.where(np.abs(significant_gradients) < self.accumulation_threshold, significant_gradients, 0)
+        self.local_accumulation += small_gradients
+        significant_gradients = np.where(np.abs(significant_gradients) >= self.accumulation_threshold, significant_gradients, 0)
+
+        # Check if accumulated gradients exceed the threshold and add them to the significant gradients
+        overflow_gradients = np.where(np.abs(self.local_accumulation) >= self.accumulation_threshold, self.local_accumulation, 0)
+        significant_gradients += overflow_gradients
+        self.local_accumulation -= overflow_gradients
+
+        # Reshape the compressed gradients back to the original shape
+        compressed_gradients = significant_gradients.reshape(gradients.shape)
+        return compressed_gradients
+
+    def clear_accumulation(self):
+        """
+        Clears the local gradient accumulation.
+        """
+        self.local_accumulation = None
+
+# Example Usage
+if __name__ == "__main__":
+    # Assume this is the gradient from a model layer
+    example_gradients = np.random.randn(100, 100)
+
+    compressor = GradientCompressor(sparsity_threshold=0.001, accumulation_threshold=0.0001)
+    compressed_gradients = compressor.compress(example_gradients)
+    print("Compressed gradients shape:", compressed_gradients.shape)
+
 
 This method optimizes communication while preserving essential gradient information, aiming to enhance both efficiency and model performance.

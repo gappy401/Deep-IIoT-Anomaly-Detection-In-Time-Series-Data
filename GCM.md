@@ -102,6 +102,7 @@ class GradientCompressor:
         """
         Clears the local gradient accumulation.
         """
+
         self.local_accumulation = None
 
 # Example Usage

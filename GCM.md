@@ -1,4 +1,4 @@
-# Gradient Compression Method
+# Gradient Compression Method (From the reffered paper)
 
 ## Overview
 

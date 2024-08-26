@@ -189,7 +189,6 @@ The application of gradient compression techniques, designed to enhance training
 
 - **GRU Model**: The GRU model maintained its accuracy at 95%, demonstrating stability despite the application of gradient compression. While gradient compression improved training efficiency, it did not compromise the GRU's ability to capture sequential patterns effectively. The model's architecture appears robust enough to handle the compressed gradients without impacting its performance.
 
-##### Summary
 
 In summary, the effectiveness of gradient compression techniques varies across different models. **Sparsification** worked best for the **Attention Mechanism LSTM-CNN model** due to its synergy with the model's attention mechanism, enhancing performance by efficiently managing gradient updates. It also significantly improved **SAE accuracy** by reducing noise. For the **GRU model**, while compression improved training efficiency, it did not affect accuracy, indicating its resilience to gradient compression. The **CNN-LSTM model** showed minimal changes in accuracy, reflecting its balanced performance even under gradient compression.
 

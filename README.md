@@ -186,12 +186,9 @@ Overall, this experimental setup aimed to rigorously test and compare the effect
   <img src="Resources/Accuracy.png"  style="width: 50%; border: 2px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"/>
 </div>
 
-- **Comparison with Baselines on compression**: For each model, applying gradient compression led to improved training times. Specifically, the Attention Mechanism LSTM-CNN saw the most substantial reduction, with training time decreasing from 77 seconds to 50 seconds, a 35% improvement. The CNN-LSTM model experienced a 13% reduction, with training time decreasing from 60 seconds to 52 seconds. Similarly, the GRU model's training time decreased from 44 seconds to 32 seconds, marking a 27% improvement. These results demonstrate that gradient compression effectively enhanced training efficiency across all models, with varying degrees of impact depending on the model architecture.
+- **Comparison with Baselines on compression**: For each model, applying gradient compression led to improved training times. Specifically, the Attention Mechanism LSTM-CNN saw the most substantial reduction, with training time decreasing from 77 seconds to 50 seconds, a 35% improvement. The CNN-LSTM model experienced a 13% reduction, with training time decreasing from 60 seconds to 52 seconds. Similarly, the GRU model's training time decreased from 200 seconds to 175 seconds, marking a 12% improvement. The leaset impact was noted for the SAE model which was just under 10% decrease in efficiency. These results demonstrate that gradient compression effectively enhanced training efficiency across all models, with varying degrees of impact depending on the model architecture.
 
 
-   <div align="center">
-  <img src="Resources/Comparision.png" alt="How Gradient Compression Affected the Models" style="width: 50%; border: 2px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"/>
-</div>
 
 
 ## 5. Challenges

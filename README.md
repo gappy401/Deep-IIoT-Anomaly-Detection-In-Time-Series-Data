@@ -155,7 +155,7 @@ This architecture ensures that the federated learning system remains scalable an
 
 
 
-### 5.4 Results 
+### 5 Results 
 - **Model Performance**: In replicating the study, the accuracy results for the evaluated models reveal notable differences in performance. The GRU model achieved an accuracy of 95%, demonstrating strong capabilities in capturing sequential patterns efficiently. The SAE model, with an accuracy of 84%, performed comparatively lower, reflecting its limitations in direct classification tasks due to its focus on feature learning and reconstruction rather than classification. The CNN-LSTM model excelled with an accuracy of 97%, effectively leveraging both spatial and temporal feature extraction for improved performance. The CNN-LSTM with Attention Mechanism outperformed all other models with an accuracy of 97.5%, underscoring the significant impact of attention mechanisms in enhancing model performance by focusing on the most relevant parts of the input sequence. These results provide a clear hierarchy of model effectiveness, with attention mechanisms contributing the most to accuracy.
  <div align="center">
   <img src="Resources/Accuracy.png"  style="width: 50%; border: 2px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"/>
@@ -163,7 +163,7 @@ This architecture ensures that the federated learning system remains scalable an
 
 - **Comparison with Baselines on compression**: For each model, applying gradient compression led to improved training times. Specifically, the Attention Mechanism LSTM-CNN saw the most substantial reduction, with training time decreasing from 77 seconds to 50 seconds, a 35% improvement. The CNN-LSTM model experienced a 13% reduction, with training time decreasing from 60 seconds to 52 seconds. Similarly, the GRU model's training time decreased from 200 seconds to 175 seconds, marking a 12% improvement. The leaset impact was noted for the SAE model which was just under 10% decrease in efficiency. These results demonstrate that gradient compression effectively enhanced training efficiency across all models, with varying degrees of impact depending on the model architecture.
 
-### 5.5 Impact of Gradient Compression on Model Accuracy
+#### 5.1 Impact of Gradient Compression on Model Accuracy
 
 - **Accuracy Variations Across Models**: The application of gradient compression techniques, while primarily intended to enhance training efficiency, also had varied impacts on the accuracy of different models. For the SAE model, the introduction of sparsification significantly boosted accuracy, increasing it from 95.5% to 97.25%. This improvement is attributed to the reduction of noise in the gradient updates, allowing the model to focus more effectively on the most relevant features.
 
@@ -176,6 +176,22 @@ This architecture ensures that the federated learning system remains scalable an
 - **GRU Model**: The GRU model's accuracy remained stable at 95%, indicating that while gradient compression improved training time, it did not compromise the model's ability to capture sequential patterns.
 
 This section underscores the dual benefit of gradient compression: while it universally improves training efficiency, its impact on accuracy can vary, with some models like the SAE benefiting from noise reduction and others maintaining stable performance.
+
+#### 5.2 Accuracy Variations Across Models
+
+The application of gradient compression techniques, designed to enhance training efficiency, had diverse effects on the accuracy of different models:
+
+- **SAE Model**: The SAE model experienced a notable improvement in accuracy when gradient sparsification was applied, increasing from 95.5% to 97.25%. This significant boost is primarily due to the reduction of noise in the gradient updates. By eliminating less important gradient information, the model could concentrate more effectively on critical features, leading to enhanced performance.
+
+- **Attention Mechanism LSTM-CNN Model**: The Attention Mechanism LSTM-CNN model, already highly optimized for performance, saw the most substantial impact from gradient compression. Sparsification proved to be particularly effective for this model. The attention mechanism naturally emphasizes the most relevant parts of the input sequence, making it well-suited to benefit from sparsification, which reduces the communication load without significantly affecting the model’s ability to focus on important features. This resulted in a slight improvement in accuracy, maintaining its high performance at 97.5%.
+
+- **CNN-LSTM Model**: For the CNN-LSTM model, the accuracy remained stable at 97%, with only slight variations. This model effectively combines spatial and temporal feature extraction, which likely minimized the impact of gradient compression techniques on its overall performance. The marginal changes in accuracy suggest that the model’s robust architecture allows it to maintain performance even with compressed gradients.
+
+- **GRU Model**: The GRU model maintained its accuracy at 95%, demonstrating stability despite the application of gradient compression. While gradient compression improved training efficiency, it did not compromise the GRU's ability to capture sequential patterns effectively. The model's architecture appears robust enough to handle the compressed gradients without impacting its performance.
+
+##### Summary
+
+In summary, the effectiveness of gradient compression techniques varies across different models. **Sparsification** worked best for the **Attention Mechanism LSTM-CNN model** due to its synergy with the model's attention mechanism, enhancing performance by efficiently managing gradient updates. **Sparsification** also significantly improved **SAE accuracy** by reducing noise. For the **GRU model**, while compression improved training efficiency, it did not affect accuracy, indicating its resilience to gradient compression. The **CNN-LSTM model** showed minimal changes in accuracy, reflecting its balanced performance even under gradient compression.
 
 
 

@@ -155,31 +155,7 @@ This architecture ensures that the federated learning system remains scalable an
 
 
 
-
-## 5. Experiments and Results
-### 5.1 Experimental Setup
-
-To ensure a thorough evaluation of the proposed models, a comprehensive experimental setup was implemented, encompassing hyperparameter tuning, cross-validation, and data processing techniques.
-
-**Hyperparameter Tuning and Cross-Validation:**
-
-Hyperparameter tuning was performed using a grid search approach to identify optimal parameters for each model. Parameters such as learning rates, number of layers, and units were varied systematically. To validate model performance and ensure robustness, stratified k-fold cross-validation was employed, with k set to 5. This technique ensured that each fold maintained the proportion of classes and provided a reliable estimate of the model's performance on unseen data.
-
-**Data Augmentation and Preprocessing:**
-
-To address potential class imbalance and enhance data quality, several preprocessing steps were undertaken. These included data normalization to standardize feature scales, handling missing values through imputation, and feature selection using variance inflation factor (VIF) and principal component analysis (PCA) to reduce dimensionality and eliminate redundant features. Data augmentation techniques were applied to artificially expand the dataset, improving the model's ability to generalize by providing a more diverse set of training examples.
-
-**Gradient Compression:**
-
-In the context of federated learning, gradient compression techniques were integrated to enhance communication efficiency between the edge devices and the cloud aggregator. Each client computed and compressed gradients to minimize data transfer overhead. The aggregated compressed gradients were used to update the global model, which was then redistributed for further local training. This approach aimed to reduce communication latency and improve training times across distributed environments.
-
-**Training and Evaluation:**
-
-Models were trained with predefined hyperparameters for a fixed number of epochs, with a batch size optimized for each model type. The evaluation metrics included accuracy, precision, recall, and F1 score, focusing on how well each model detected anomalies in the time series data. The training process was monitored to ensure convergence and avoid overfitting.
-
-Overall, this experimental setup aimed to rigorously test and compare the effectiveness of various deep learning methodologies for anomaly detection, providing insights into their performance, scalability, and efficiency in the context of Industrial IoT applications.
-
-### 5.2 Results
+### 5.4 Results
 - **Model Performance**: In replicating the study, the accuracy results for the evaluated models reveal notable differences in performance. The GRU model achieved an accuracy of 95%, demonstrating strong capabilities in capturing sequential patterns efficiently. The SAE model, with an accuracy of 84%, performed comparatively lower, reflecting its limitations in direct classification tasks due to its focus on feature learning and reconstruction rather than classification. The CNN-LSTM model excelled with an accuracy of 97%, effectively leveraging both spatial and temporal feature extraction for improved performance. The CNN-LSTM with Attention Mechanism outperformed all other models with an accuracy of 97.5%, underscoring the significant impact of attention mechanisms in enhancing model performance by focusing on the most relevant parts of the input sequence. These results provide a clear hierarchy of model effectiveness, with attention mechanisms contributing the most to accuracy.
  <div align="center">
   <img src="Resources/Accuracy.png"  style="width: 50%; border: 2px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"/>

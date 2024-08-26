@@ -167,6 +167,10 @@ This architecture ensures that the federated learning system remains scalable an
 
 - **Accuracy Variations Across Models**: The application of gradient compression techniques, while primarily intended to enhance training efficiency, also had varied impacts on the accuracy of different models. For the SAE model, the introduction of sparsification significantly boosted accuracy, increasing it from 95.5% to 97.25%. This improvement is attributed to the reduction of noise in the gradient updates, allowing the model to focus more effectively on the most relevant features.
 
+<div align="center">
+  <img src="Resources/Gradient-shifts.png" alt="General Architecture Provided in the Paper" style="width: 50%; border: 2px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"/>
+</div>
+
 - **Attention Mechanism LSTM-CNN and CNN-LSTM Models**: In contrast, the CNN-LSTM and Attention Mechanism LSTM-CNN models saw slight variations in accuracy, with negligible changes, maintaining their high performance at 97% and 97.5%, respectively. These models already effectively leverage spatial and temporal information, so the compression did not significantly alter their accuracy.
 
 - **GRU Model**: The GRU model's accuracy remained stable at 95%, indicating that while gradient compression improved training time, it did not compromise the model's ability to capture sequential patterns.

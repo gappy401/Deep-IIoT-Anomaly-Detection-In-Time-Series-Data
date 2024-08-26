@@ -154,11 +154,10 @@ This architecture ensures that the federated learning system remains scalable an
 
 
 
-### 3.3 Training and Evaluation
 
 
-## 4. Experiments and Results
-### 4.1 Experimental Setup
+## 5. Experiments and Results
+### 5.1 Experimental Setup
 
 To ensure a thorough evaluation of the proposed models, a comprehensive experimental setup was implemented, encompassing hyperparameter tuning, cross-validation, and data processing techniques.
 
@@ -180,7 +179,7 @@ Models were trained with predefined hyperparameters for a fixed number of epochs
 
 Overall, this experimental setup aimed to rigorously test and compare the effectiveness of various deep learning methodologies for anomaly detection, providing insights into their performance, scalability, and efficiency in the context of Industrial IoT applications.
 
-### 4.2 Results
+### 5.2 Results
 - **Model Performance**: In replicating the study, the accuracy results for the evaluated models reveal notable differences in performance. The GRU model achieved an accuracy of 95%, demonstrating strong capabilities in capturing sequential patterns efficiently. The SAE model, with an accuracy of 84%, performed comparatively lower, reflecting its limitations in direct classification tasks due to its focus on feature learning and reconstruction rather than classification. The CNN-LSTM model excelled with an accuracy of 97%, effectively leveraging both spatial and temporal feature extraction for improved performance. The CNN-LSTM with Attention Mechanism outperformed all other models with an accuracy of 97.5%, underscoring the significant impact of attention mechanisms in enhancing model performance by focusing on the most relevant parts of the input sequence. These results provide a clear hierarchy of model effectiveness, with attention mechanisms contributing the most to accuracy.
  <div align="center">
   <img src="Resources/Accuracy.png"  style="width: 50%; border: 2px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"/>
@@ -191,13 +190,13 @@ Overall, this experimental setup aimed to rigorously test and compare the effect
 
 
 
-## 5. Challenges
+## 6. Challenges
 
 One of the primary challenges encountered in this study is the computational limitation associated with Support Vector Machines (SVMs) and GRU models due to the large volume of data. Handling extensive datasets often leads to significant computational overhead, which can hinder the model's performance and scalability. 
 
 Additionally, he simulation of edge computing environments poses its own set of challenges. Traditional Python-based simulations may not fully capture the constraints and resource limitations of real-world edge computing scenarios, where resources are constrained and operational conditions are more variable.
 
-## 6. Conclusion
+## 7. Conclusion
 
 This paper has explored novel deep learning approaches for anomaly detection in time series data, with a particular emphasis on Industrial IoT applications. The proposed models demonstrate significant improvements over traditional methods, particularly in their ability to handle complex patterns and large datasets. The integration of attention mechanisms has been shown to enhance model accuracy, allowing for more precise anomaly detection. 
 

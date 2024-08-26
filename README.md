@@ -32,7 +32,7 @@ We utilize a time series dataset from an Industrial IoT environment. The dataset
 
 In my federated learning system, we employ a consistent architectural framework across different models, including SV, GRU, SAE, CNN, LSTM, and their combinations, to address the challenges of anomaly detection in industrial IoT settings. The architecture is designed to optimize communication and computation, particularly in scenarios involving edge devices with limited resources. Here’s a detailed overview of the architecture:
 <div align="center">
-  <img src="4-Figure2-1.png" alt="General Architecture Provided in the Paper" style="width: 50%; border: 2px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"/>
+  <img src="Resources/4-Figure2-1.png" alt="General Architecture Provided in the Paper" style="width: 50%; border: 2px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"/>
 </div>
 
 

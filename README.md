@@ -191,7 +191,7 @@ The application of gradient compression techniques, designed to enhance training
 
 ##### Summary
 
-In summary, the effectiveness of gradient compression techniques varies across different models. **Sparsification** worked best for the **Attention Mechanism LSTM-CNN model** due to its synergy with the model's attention mechanism, enhancing performance by efficiently managing gradient updates. **Sparsification** also significantly improved **SAE accuracy** by reducing noise. For the **GRU model**, while compression improved training efficiency, it did not affect accuracy, indicating its resilience to gradient compression. The **CNN-LSTM model** showed minimal changes in accuracy, reflecting its balanced performance even under gradient compression.
+In summary, the effectiveness of gradient compression techniques varies across different models. **Sparsification** worked best for the **Attention Mechanism LSTM-CNN model** due to its synergy with the model's attention mechanism, enhancing performance by efficiently managing gradient updates. It also significantly improved **SAE accuracy** by reducing noise. For the **GRU model**, while compression improved training efficiency, it did not affect accuracy, indicating its resilience to gradient compression. The **CNN-LSTM model** showed minimal changes in accuracy, reflecting its balanced performance even under gradient compression.
 
 
 

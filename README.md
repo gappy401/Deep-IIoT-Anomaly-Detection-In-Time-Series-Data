@@ -1,4 +1,4 @@
-# Deep Industrial IoT Anomaly Detection in Time Series Data 
+# Prototyping Deep Industrial IoT Anomaly Detection in Time Series Data 
 
 ## Abstract
 In this paper, I explore some deep learning methodologies for detecting anomalies in time series data. I utilised approaches from my study of the paper [Communication-Efficient Federated Learning for Anomaly Detection in Industrial Internet of Things](https://ieeexplore.ieee.org/document/9348249). I integrated an attention mechanism-based convolutional neural network long short-term memory (AMCNN-LSTM) model to effectively capture critical features in time series data, addressing issues such as memory loss and gradient dispersion. Additionally, I explored different gradient compression mechanisms to improve communication efficiency within the federated learning setup. My work aims to adapt these advanced methodologies to the challenges of industrial anomaly detection, focusing on scalability, noise reduction, and class imbalance while ensuring privacy preservation and timely detection of anomalies in an IoT setting.

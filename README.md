@@ -50,7 +50,7 @@ My system includes a **cloud aggregator** and **edge devices** working collabora
 - **Edge Devices:** These include various IIoT sensors like whirlpools, wind turbines, and vehicles. Each edge device:
   - **Local Model Training:** Trains a local model on its specific dataset, which consists of sensing time-series data.
   - **Gradient Computation and Upload:** Computes gradients based on local training and uploads compressed gradients to the cloud aggregator.
-  - **Anomaly De
+
 
 #### 2. Gradient Compression
 

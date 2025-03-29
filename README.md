@@ -28,8 +28,6 @@ We utilize a time series dataset from an Industrial IoT environment. The dataset
 
 My process involved exploring the data with techniques like variance inflation factor (VIF) and principal component analysis (PCA) to remove redundant features, cross-verifying with Lasso, and then employing a series of models—SAE, SVM, GRU, CNN, LSTM-CNN, and Attention Mechanism LSTM CNN. By applying these models to a different time series dataset, I aim to validate their effectiveness and adaptability beyond the original study's scope, contributing to the development of robust, scalable anomaly detection solutions for IIoT applications.
 
-
-
 ### 3.2 Model Architecture
 
 In my federated learning system, we employ a consistent architectural framework across different models, including SV, GRU, SAE, CNN, LSTM, and their combinations, to address the challenges of anomaly detection in industrial IoT settings. The architecture is designed to optimize communication and computation, particularly in scenarios involving edge devices with limited resources. Here’s a detailed overview of the architecture:

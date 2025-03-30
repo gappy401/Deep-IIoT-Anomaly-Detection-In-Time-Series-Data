@@ -12,7 +12,7 @@ The gradient compression method is designed to enhance communication efficiency 
 ### Local Gradient Accumulation
 
 - **Concept**: Smaller gradients are stored locally until they surpass a certain threshold, ensuring they're eventually utilized.
-- **Benefit**: Ensures that even minor, yet potentially important gradients contribute to model updates.
+- **Benefit**: Ensures that even minor, yet potentially important gradients contribute to global model updates.
 
 ## Implementation Workflow
 

@@ -1,0 +1,36 @@
+# Project Folder Structure
+
+This folder structure is organized for scalability, collaboration, and efficiency.
+
+## Root Directory
+
+- `src/`  
+  Contains the main source code files.  
+  - `main.py`: Main entry point.  
+  - `utils.py`: Utility functions.  
+  - `modules/`: Submodules for additional functionality.  
+
+- `docs/`  
+  Documentation for the project.  
+  - `README.md`: Overview of the project.  
+  - `guides/`: User and developer guides.  
+
+- `config/`  
+  Configuration files for the project.  
+  - `settings.json`: JSON file for app settings.  
+  - `environment.yaml`: YAML file for environment setup.  
+
+- `tests/`  
+  Scripts and cases for testing the project.  
+  - `unit_tests.py`: Unit tests.  
+  - `integration_tests.py`: Integration tests.  
+
+- `assets/`  
+  Static assets such as images or datasets.  
+  - `logo.png`: Project logo.  
+  - `data/`: Dataset files.  
+
+- `logs/`  
+  Contains logs and error tracking files.  
+  - `debug.log`: Debugging logs.  
+  - `runtime.log`: Runtime logs.

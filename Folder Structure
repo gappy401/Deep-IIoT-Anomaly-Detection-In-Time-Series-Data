@@ -1,36 +1,42 @@
-# Project Folder Structure
+# Project Overview and Folder Structure
 
-This folder structure is organized for scalability, collaboration, and efficiency.
+This document explains the purpose of each folder in the project and provides guidance on how to set up and execute the project using the `requirements.txt` file.
 
-## Root Directory
+## Folder Structure
 
-- `src/`  
-  Contains the main source code files.  
-  - `main.py`: Main entry point.  
-  - `utils.py`: Utility functions.  
-  - `modules/`: Submodules for additional functionality.  
+### 1. `Notebooks/`
+- Contains Jupyter notebooks for experimentation and prototyping.
+- Key notebooks:
+  - `EDA-Feature-Engineering.ipynb`: Handles preprocessing workflows for time series data.
+  - Rest are individual model scripts for different types of models
 
-- `docs/`  
-  Documentation for the project.  
-  - `README.md`: Overview of the project.  
-  - `guides/`: User and developer guides.  
+### 2. `Resources/`
+- Stores external references such as papers, tutorials, or diagrams.
 
-- `config/`  
-  Configuration files for the project.  
-  - `settings.json`: JSON file for app settings.  
-  - `environment.yaml`: YAML file for environment setup.  
 
-- `tests/`  
-  Scripts and cases for testing the project.  
-  - `unit_tests.py`: Unit tests.  
-  - `integration_tests.py`: Integration tests.  
+### 3. `Gradient-Mechanism.md`
+- A standalone markdown file detailing gradient compression strategies for federated learning.
 
-- `assets/`  
-  Static assets such as images or datasets.  
-  - `logo.png`: Project logo.  
-  - `data/`: Dataset files.  
+### 4. `README.md`
+- Provides an overview and abstract of the project.
+- Links for model architecture and data used.
+- Includes explanations about methodology, model architecture, and goals for anomaly detection in IIoT time series data.
 
-- `logs/`  
-  Contains logs and error tracking files.  
-  - `debug.log`: Debugging logs.  
-  - `runtime.log`: Runtime logs.
+
+### 5. `requirements.txt`
+- Lists the Python dependencies required to run the project, ensuring reproducibility.
+
+---
+
+## How to Set Up and Run the Project
+
+### Prerequisites
+1. Ensure Python is installed on your system.
+2. Install a virtual environment package (`venv` or `virtualenv`) for dependency isolation.
+
+### Installation Steps
+1. **Clone the Repository**  
+   Clone this repository to your local machine:
+   ```bash
+   git clone <repository_url>
+   cd Deep-IIoT-Anomaly-Detection-In-Time-Series-Data
